@@ -26,7 +26,7 @@ body{
     height: auto;
 }
 .weather-icon{
-    padding: 50px;
+    padding: 10px;
 }
 
 .fa-cs{
@@ -47,7 +47,7 @@ body{
     align-items: center;
 }
 .temp{
-    padding: 5px;
+    padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,9 +58,24 @@ body{
     color: #00203fff;
     margin-bottom: 30px;
 }
+.temp-title{
+    font-size: 15px;
+    font-weight: 600;
+}
 .fa-temp{
     font-size: 30px;
 }
 .avg-temp{
     padding: 20px;
+}
+.icon{
+    width:200px;
+}
+.temp-value{
+    font-size: 15px;
+}
+
+.description,
+.description{
+    text-transform: capitalize;
 }

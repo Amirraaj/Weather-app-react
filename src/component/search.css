@@ -1,0 +1,41 @@
+/* Add a #ADEFD1FF background color to the top navigation bar */
+.topnav {
+    margin-top: 20px;
+    display: flex;
+    padding: 17px;
+    height: 70px;
+
+    justify-content: start;
+  } 
+  
+  /* Style the search box inside the navigation bar */
+  .topnav input[type=text] {
+    float: right;
+    padding:10px;
+    border: none;
+    font-size: 17px;
+    border-radius:10px 0 0 10px;
+    background-color:#ADEFD1FF;
+    outline: 0;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome */
+    color: #00203fff;
+    transition: opacity 250ms ease-in-out;
+  }
+
+  .topnav .btn{
+    border: none;
+    background-color: #ADEFD1FF;
+   padding-right: 10px;
+    border-radius: 0 10px 10px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+  }
+
+  .fa-fa{
+    color: #00203fff;
+  }
