@@ -1,15 +1,14 @@
 import {React, useState, useEffect, useRef} from 'react';
 import './weather.css';
-import WeaterData from './WeatherData.json'
-import { Search } from './Search';
+import { Search } from '../search/Search';
 
 export const Weather = () => {
     
-    
     const[temperature, setTemperature] =useState();
     const[city, setCity] =useState();
+    const[myLocation, setMyLocation] = useState({});
     const lngLon = useRef();
-    const urlAPI = "https://api.openweathermap.org/data/2.5/weather?appid=aeec17f963040d74edaa1cd417ca4088&units=metric";
+    const urlAPI = "https://api.openweathermap.org/data/2.5/weather?appid=8df670774bf2ce5c6289be595e3682e9&units=metric";
     
     const getQuery = () => {
         let url = urlAPI
@@ -18,11 +17,15 @@ export const Weather = () => {
         }else if(lngLon.current){
             url = `${url}&lat=${lngLon.current.lat}&lon=${lngLon.current.lon}`
         } else {
-            return null
+            return null;
         }
-
         return url
     }
+
+    useEffect(() => {
+        initalizeLocation();
+
+    },[])
     
     const getData = async() =>{
         const url = getQuery()
@@ -30,7 +33,7 @@ export const Weather = () => {
             try{
                 const response = await fetch(url);
                 const data = await response.json();
-                if (data.cod === '200'){
+                if (data.cod === 200){
                     setTemperature (data);
                 }
             
@@ -41,30 +44,58 @@ export const Weather = () => {
         }
 
         else{
-            console.log("location undefined");
+            console.log('initislize location')
+
+        if(Object.keys(myLocation).length > 0){
+
+           
+            
+            // console.log(myLocation);
+            const currentlocationUrl = `https://api.openweathermap.org/data/2.5/weather?&lat=${myLocation.latitude}&lon=${myLocation.longitude}&appid=8df670774bf2ce5c6289be595e3682e9&units=metric`;
+            try{
+                const response = await fetch(currentlocationUrl);
+                const data = await response.json();
+                if (data.cod === 200){
+                    setTemperature (data);
+                }
+                
+            }
+            catch(e){
+                console.log(e, "error detected");
+            }
+        }
+
         }
         
     }
     useEffect(() => {
         getData();
-        // setTemperature(WeaterData);
-        
-    },[])
+    },[myLocation])
 
     function searchCity(){
        getData();
     }
-    
-if(!temperature){
-    return(
-        <></>
-    )
-}
+
+   function initalizeLocation() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+                setMyLocation(() =>({
+                    latitude:position.coords.latitude,
+                    longitude:position.coords.longitude
+                }))
+
+        });
+      }
+
+    if(!temperature){
+        return(
+            <></>
+        )
+    }
   return (
    <section className='weather-section'>
     <div className='container'>
        <Search 
-       onChange={(value)=>setCity(value)}
+            onChange={(value)=>setCity(value)}
             onSearch ={searchCity}
        />
         <div className='weather-icon'>
