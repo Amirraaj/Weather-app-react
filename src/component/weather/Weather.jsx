@@ -26,7 +26,7 @@ export const Weather = ({ data }) => {
                     <div className='temp max-temp'>
                         <h3 className='temp-title'>Max-Temp</h3>
                         <i className="fa-solid fa-temperature-high fa-temp"></i>
-                        <h3 className='temp-value'>{data.main.temp}°C</h3>
+                        <h3 className='temp-value'>{data.main.temp_max}°C</h3>
                     </div>
                     <div className='temp avg-temp'>
                         <h3 className='temp-title'>Avg-Temp</h3>
@@ -36,7 +36,7 @@ export const Weather = ({ data }) => {
                     <div className='temp min-temp'>
                         <h3 className='temp-title'>Min-Temp</h3>
                         <i className="fa-solid fa-temperature-low fa-temp"></i>
-                        <h3 className='temp-value'>{data.main.temp}°C</h3>
+                        <h3 className='temp-value'>{data.main.temp_min}°C</h3>
                     </div>
                 </div>
             </div>
