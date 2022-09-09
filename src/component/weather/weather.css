@@ -1,16 +1,7 @@
 *{
     box-sizing: border-box;
+  
 }
-body{
-    background-color: #ADEFD1FF;
-}
-.weather-section{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-
 .container{
     background-color: #00203fff; 
     width: 30vw;
@@ -18,7 +9,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     height: auto;
 }
 .weather-icon{
@@ -35,6 +26,7 @@ body{
     align-items: center;
     flex-direction: column;
     color: #ADEFD1FF;
+    padding: 5em;
 }
 
 .temperature-details{
@@ -43,7 +35,7 @@ body{
     align-items: center;
 }
 .temp{
-    padding: 10px 20px;
+    padding: 35px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,7 +54,7 @@ body{
     font-size: 30px;
 }
 .avg-temp{
-    padding: 20px;
+    padding: 45px 20px;
 }
 .icon{
     width:200px;

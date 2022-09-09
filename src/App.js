@@ -1,11 +1,14 @@
 
 import './App.css';
-import { Weather } from './component/weather/Weather';
+import SideContainer from './component/sideContainer/SideContainer';
+// import { Weather } from './component/weather/Weather';
 
 function App() {
   return (
     <div className="App">
-      <Weather />
+      {/* <Weather /> */}
+      <SideContainer />
+
     </div>
   )
 }

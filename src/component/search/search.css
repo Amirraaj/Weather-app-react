@@ -4,14 +4,14 @@
     display: flex;
     padding: 17px;
     height: 70px;
-
+    z-index: 1;
     justify-content: start;
   } 
   
   /* Style the search box inside the navigation bar */
   .topnav input[type=text] {
     float: right;
-    padding:10px;
+    padding:10px 45px;
     border: none;
     font-size: 17px;
     border-radius:10px 0 0 10px;
