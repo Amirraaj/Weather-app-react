@@ -49,9 +49,6 @@ const SideContainer = () => {
 
             if (Object.keys(myLocation).length > 0) {
 
-
-
-                // console.log(myLocation);
                 const currentlocationUrl = `https://api.openweathermap.org/data/2.5/weather?&lat=${myLocation.latitude}&lon=${myLocation.longitude}&appid=8df670774bf2ce5c6289be595e3682e9&units=metric`;
                 try {
                     const response = await fetch(currentlocationUrl);
