@@ -8,6 +8,7 @@ const SideContainer = () => {
     const [temperature, setTemperature] = useState();
     const [city, setCity] = useState();
     const [myLocation, setMyLocation] = useState({});
+    const [myloading, setMyLoading] = useState(false);
     const lngLon = useRef();
     const urlAPI = "https://api.openweathermap.org/data/2.5/weather?appid=8df670774bf2ce5c6289be595e3682e9&units=metric";
 
@@ -27,8 +28,11 @@ const SideContainer = () => {
         initalizeLocation();
 
     }, [])
-
     const getData = async () => {
+        setMyLoading(true);
+        setTimeout(function () {
+            setMyLoading(false)
+        }, 500)
         const url = getQuery()
         if (url) {
             try {
@@ -66,12 +70,15 @@ const SideContainer = () => {
         }
 
     }
+
     useEffect(() => {
         getData();
     }, [myLocation])
 
+
     function searchCity() {
         getData();
+
     }
 
     function initalizeLocation() {
@@ -83,6 +90,26 @@ const SideContainer = () => {
 
         });
     }
+
+    const noNameMatched = () =>{
+        return (
+            <div className='no-data-found'>
+            </div>
+        )
+    }
+
+    if (myloading) {
+        return (
+            <div >
+                {/* loader section  */}
+                <div className="loader-container">
+                    <div className="spinner"></div>
+                </div>
+
+            </div>
+        )
+    }
+
     return (
         <section className='main-container'>
             <div className='left-container'>
@@ -105,8 +132,6 @@ const SideContainer = () => {
                         onSearch={searchCity}
                     />
                 </div>
-
-
             </div>
             <div className='right-container'>
                 <Weather

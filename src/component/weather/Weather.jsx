@@ -1,10 +1,6 @@
 import React from 'react';
 import './weather.css';
-
-
 export const Weather = ({ data }) => {
-
-
     if (!data) {
         return (
             <></>
